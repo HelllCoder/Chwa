@@ -1,0 +1,22 @@
+<nav>
+    <img src='/img/avatar-bg.png' alt='Charakter' />
+	<a title = 'Charakter' href='game.php?page=charakter'> Charakter</a>
+	<a title = 'Bojiště' href='game.php?page=bojiste'> Bojiště</a>
+	<a id = "postaTlacitko" title = 'Pošta' href='game.php?page=posta'> Pošta </a>
+	<div id = "postaUkazovatel">
+		<?php
+session_start();
+$sql = mysql_query("SELECT * from zpravy where prijemce = '".$_SESSION['login']."'");
+$pocet = mysql_num_rows($sql);
+echo "Zprávy : ".$pocet;
+?>
+	</div>
+	<a title = 'Městský úřad' href='game.php?page=mestsky_urad'> Městský úřad </a>
+	<a title = 'Síň hrdinů' href='game.php?page=sien_hrdinov'>Síň hrdinů</a>
+		<a title = 'Mapa' href='game.php?page=mascot'> Mascot </a>
+	<a title = 'Obchodní zóna' href='game.php?page=trziste'> Obchodní zóna </a>
+	<a title = 'Skupina' href='game.php?page=skupina'> Skupina </a>
+		<a title = 'Mapa' href='game.php?page=pevnost'> Pevnost </a>
+	<a title = 'Knihovna' href='game.php?page=knihovna'> Knihovna </a>
+	<a title = 'Mapa' href='game.php?page=mapa'> Mapa </a>
+</nav> 
