@@ -1,0 +1,748 @@
+﻿/* UPOZORNENIE pre kolegov. Ak chcete niečo odstránit,
+len to zakomentujte. Ak ten kód znova bude potrebný,
+nebudeme ho musieť znovu písať.
+
+ABY SA V TOMTO DALO ORIENTOVAŤ:
+ - celý tento súbor je rozdelený na niekoľko častí.
+ - každá obsahuje definície štýlov pre istú skupinku selektorov
+ - tieto skupinky sú podelené podľa významu (napr. definície písiem, atď)
+ - jednotlivé skupiny sú "všeobecné", napr. linky, nadpisy h1, kontajnery section, atď,
+   ktoré sú využité skoro vo všetkých herných stránkach 
+   (tieto skupiny nájdete v prvej časti tohto súboru) a "viažuce
+   sa na istú stránku/časť hry" (napr. bojisko, pošta atď.) - čiže selektory využité v 
+   onej konkrétnej časti hry sú zoskupené v jednej skupinke. Tieto skupinky podľa častí
+   hry nájdete v druhej časti CSS súboru.
+-  pri každom selektore by ste mali nájsť jeho krátky popis prostredníctvom komentára
+
+PRÍKLADY
+* Dajme tomu, že chcete upraviť vzhľad tabuľky hernej pošty. Preto v druhej časti súboru
+  hľadajte skupinu selektorov, nad ktorými je nápis =============== POŠTA ==============.
+  Medzi nimi nájdete aj tie, ktoré sú využité v tabuľke.
+* Chcete upraviť vzhľad štandardného linku využitého všade v hre. Mal by byť v prvej časti
+  súboru, v skupine Texty, nadpisy a Linky.
+
+ZOZNAM SKUPÍN SELEKTOROV
+** Prvá časť - všeobecné selektory **
+   - Vlastné fonty (špeciálne fonty využité v hre)
+   - Kontajnery (elementy napr. div, section, aside, article, header atď)
+   - Texty, nadpisy a Linky (elementy napr. a, p, span)
+   - Formulár (rôzne formulárove prvky, textové polia, tlačítka submit, atď)
+
+** Druhá časť - špeciálne selektory **
+   - Registrácia (Stránka registrácie)
+   - Horná uživateľská lišta (linky v nej, prihlasovací formulár atď)
+   - Charakter (obsah stránky Charakter)
+   - Pošta (selektory ohľadom pošty)
+   - Bojisko (ohľadom bojiska)
+   - Skupina (selektory v stráke skupiny)
+   - Sieň hrdinov (v sieni hrdinov)
+   - Mascot (v mascotovi)
+   - Iné (zákaz kopírovanie textov, reklamy atď)
+
+
+Snáď je to jasné :)
+*/
+
+
+
+/* !!!!!!!!!!!!!!!!!!! PRVÁ ČASŤ SÚBORU - VŠEOBECNÉ SELEKTORY !!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
+
+/* ========================= Vlastné fonty ===================== */
+
+/* Písmo využívané pri oznámení, že dotyčná funkcionalita ešte
+   nie je naprogramovaná. */
+@font-face {
+	font-family: chunkfive;
+	src: url("fonts/chunkfive.otf");
+}
+
+/* Písmo využité v menu */
+@font-face {
+	font-family: lucida;
+	src: url("fonts/luc.ttf");
+}
+
+/* Písmo využité v hlavičke */
+@font-face {
+	font-family: alex;
+	src: url("fonts/alex.otf");
+}
+
+/* ======================== Kontajnery ========================= */
+
+
+body { 
+	color: white;
+	cursor: url('img/cursor.cur'), auto;
+	margin: 0px auto;
+	font-size: 12px;
+	font-family: Tahoma, Arial, sans-serif;
+	text-align: center;
+	background: #FFFFFF);
+/*background-color: #E6E1E2;*/
+/*cursor: url('soubor.ani') , url('soubor2.cur') ,url('soubor3.csr')*/
+}
+
+
+/* Plocha obsahujúca všetky elementy */
+#obsah{
+	display: block;
+	padding: 0px 10px;
+	width: 960px;
+	min-width: 960px;
+	background-color: #D0D0D0;
+	box-shadow: 0 0 12px grey;
+	margin-left: auto;
+	margin-right: auto;
+	color: black;
+	border-bottom-left-radius: 12px;
+	border-bottom-right-radius: 12px;
+}
+
+
+/* Hlavná hlavička :) No, tu by mal byť banner */
+header.main_head {
+	display: block;
+	background-image: url('img/bann.jpg');
+	margin: 0 -10px;
+	width: 980px;
+	height: 160px;
+	margin-top: -12px;
+	background-size: 980px 160px;
+	border-bottom: 1px solid grey;
+	transition: opacity 0.5s linear;
+	-webkit-transition: opacity 0.5s linear;
+	-o-transition: opacity 0.5s linear;
+	outline: 0;
+}
+
+header.main_head:hover
+{
+	opacity: 0.6;
+}
+/*
+ Hlavné menu 
+nav{
+	display: block;
+	margin: 25px 0;
+	float: left;
+}
+================================================= */
+
+/* Pokus o prerábku hlavného menu */
+nav {
+	display: block;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	margin-top: 20px;
+	margin-bottom: 30px;
+	border-radius: 5px;
+	float: left;
+	text-shadow: 0 0 2px brown;
+	text-align: center;
+	text-transform: uppercase;
+	font-family: lucida;
+	font-weight: bold;
+	font-size: 110%;
+}
+
+/* Pätička stránky */
+footer {
+    display: block;
+	background-color: #E8E8E8; /* 4A4A4A */
+	border-bottom-left-radius: 12px;
+	border-bottom-right-radius: 12px;
+	margin-left: -10px;
+	margin-right: -10px;
+	clear: both;
+    padding: 5px;
+    text-align: center;
+    color: black;
+	font-family: alex;
+    font-size: 19px;
+	font-weight: bold;
+}
+
+
+/* Obsah generovaný péhapéčkami */
+section {
+	display: block;
+	float: left;
+	width: 525px;
+	max-width: 525px;
+	padding:20px;
+	text-align: left;
+}
+
+/* Pre changelogy, licenčné podmienky atď atď */
+section pre {
+	width: 700px;
+	min-width: 300px;
+	height: 600px;
+	min-height: 300px;
+	border: 2px solid grey;
+	overflow: auto;
+	padding: 10px;
+	font-size: 10px;
+}
+
+
+
+/* =================== Texty, nadpisy, linky ====================== */
+
+h1 {
+	font-size: 18px;
+	color: black;
+}
+
+/* Štandardný odkaz na stránke */
+a {
+  color: black;
+  cursor: url('img/cursor.cur'), auto;
+  text-decoration:none;
+  outline: 0;
+  transition: color 0.33s linear;
+  -webkit-transition: color 0.33s linear;
+  -o-transition: color 0.33s linear;
+}
+
+a:hover {
+	color: #E8B200;
+}
+
+a:active {
+	color: orange;
+}
+
+
+/* Ukazovateľ aktuálneho počtu surovín (mincí/tehličiek)
+dostane menšie písmo, ako je štandardné. Taktiež nejaký padding
+aby nebolo natlačené na seba so svojim susedom */
+span.ukazovatel_surovin{
+	display: inline-block;
+	vertical-align: middle;
+	padding-right: 10px;
+	font-size: 10px;
+	color: gold;
+	font-weight: bold;
+	text-shadow: 4px 4px 10px black;
+}
+
+
+/* Text s 'knihovým' zarovnaním. Využitý pri oznámeniach
+   (napr. o novej verzii) */
+p.justify {
+	text-align: justify;
+}
+
+nav a {
+	display: block;
+	background: linear-gradient(to right, #121212, #555555);
+	width: 170px;
+	height: 28px;
+	min-width: 170px;
+	min-height: 28px;
+	margin-top: 5px;
+	line-height: 20px;
+	border: 7px ridge grey;
+	border-radius: 12px;
+	transition: border 0.33s linear, color 0.33s linear;
+	-webkit-transition: border 0.33s linear, color 0.33s linear;
+	-o-transition: border 0.33s linear, color 0.33s linear;
+
+}
+
+nav a:hover {
+	border-color: white;
+	background: linear-gradient(to right, #555555, #121212);
+	color: orange;
+/*
+	transition: color 0.5s linear, border-color 0.5s linear;
+	-webkit-transition: color 0.5s linear, border-color 0.5s linear;	
+	-o-transition: color 0.5s linear, border-color 0.5s linear;	
+*/
+	}
+
+
+pre h3 {
+	color: gold;
+	text-transform: uppercase;
+	font-weight: bold;
+}
+
+figcaption#sorry {
+	font-family: chunkfive;
+	color: red;
+	font-weight: bold;
+	font-size: 14px;
+}
+
+/* Tlačítka podobné tým v input[type = "submit"], akorát tieto sú použité ako linky.
+Nebudú môct byt spolu, pretože type=submit má prirodzený padding od browseru,
+a po pridaní ďalšieho by vyzerali neprirodzene */
+a.chwaTlacitko {
+	background-color: #555555;
+	transition: background-color 0.5s linear;
+	-webkit-transition: background-color 0.5s linear;
+	border: 3px solid black;
+	border-radius: 18%;
+	cursor: pointer;
+	padding: 5px;
+	padding-bottom: 3px;
+	color: #DBB004;
+	font-weight: 700;
+	font-variant: small-caps;
+}
+
+/* Odkaz na stránku Lerain Softwares v pätičke */
+footer a#lerainLink {
+	transition: color 0.5s linear;
+	-webkit-transition: color 0.5s linear;
+}
+
+/* V prpade, že uživateľ na tento link príde myškou */
+footer a#lerainLink:hover {
+	color: silver;
+}
+
+footer a#lerainLink:active {
+	color: lime;
+}
+
+/* odstavec pre zobrazenie chybovej hlášky */
+p.chybovaHlaska {
+	display: block;
+	margin-top: 10px;
+	font-size: 18px;
+	color: #FA2D72;
+	font-weight: bold;
+}
+
+/* Text informujúci o tom, že uživateľ nevlastní tú danú vec (mascota, job atď.),
+   by mal byť farebne odlíšený) */
+span.noneValue
+{
+	color: red;
+}
+/* ============================= Formulár =========================== */
+
+/* Prihlasovací formulár */
+input[type = "text"], input[type = "password"], input[type = "email"] {
+	display: inline-block;
+	padding: 2px; 
+	width: 160px;
+	height: 20px;
+	min-width: 160px;
+	min-height: 20px;
+	font-size: 10px;
+    background-image: url("www.character-wars.tode.cz/img/logform_bg.jpg");
+	color: grey;
+	border-style: solid;
+	border: 3px solid #555555;
+	border-radius: 5px;
+	margin-top: 5px;
+	margin-bottom: 4px;
+	margin-right: 5px;
+}
+
+input[type = "text"]:hover, input[type = "password"]:hover, input[type = "email"]:hover, 
+textarea:hover {
+	border: 3px solid gold;
+}
+
+input[type = "text"]:focus, input[type = "password"]:focus, input[type = "email"]:focus,
+textarea:focus{
+	background-color: #FCFBD4;
+}
+
+
+input[type = "submit"]
+{
+	background-color: #555555;
+	transition: background-color 0.5s linear;
+	-webkit-transition: background-color 0.5s linear;
+	border: 3px solid black;
+	border-radius: 18%;
+	padding-bottom: 3px;
+	color: #DBB004;
+	font-weight: 700;
+	font-variant: small-caps;
+	cursor: pointer;
+}
+
+
+input[type = "submit"]:hover, a.chwaTlacitko:hover {
+	background-color: #666665;
+	cursor: url('img/cursor.cur'), auto;
+}
+
+select {
+	margin-top: 2px;
+	background-color: silver;
+	cursor: url('img/cursor.cur'), auto;
+	
+}
+
+input#checkPodminky {
+	margin-top: 70px;
+	margin-bottom: 10px;
+}
+
+/* 'Čiara' zoskupujúca prvky vo formulároch */
+fieldset {
+	border-radius: 10px;
+}
+
+
+/* !!!!!!!!!!!!!!!!!!!! DRUHÁ ČASŤ SÚBORU - ŠPECIÁLNE SELEKTORY !!!!!!!!!!!!!!!!!!!!! 
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
+
+
+/* ===========================  Registrácia ============================== */
+
+/* Štandardné pole v registračnom formulári, napr. heslo, e-mail, používateľské meno, atď */
+input.regField
+{
+	font-size: 20px;
+	padding: 10px;
+	width: 450px;
+}
+
+/* Políčko s výberom kráľovstva. V budúcnosti sa snáď nájde lepšie riešenie */
+select#kingdomField
+{
+display: block;
+}
+
+/* Otázniky vedľa políčok registračného formulára poskytujúce dodatočné informácie
+o význame onoho konkrétneho poľa */
+span.questionMark {
+	display: inline-block;
+	padding-left: 15px;
+	font-size: 20px;
+	font-weight: bold;
+	transition: 0.33s color linear; 
+	-webkit-transition: 0.33s color linear;
+	-o-transition: 0.33s color linear;
+}
+
+span.questionMark:hover
+{
+	color: gold;
+}
+
+
+/* =================== Horná používateľská lišta ======================= */
+
+/* Kúsok vyššie sme síce mali jednotlivé elementy prihlasovacieho
+formulára, avšak toto by sa malo vzťahovať na formulár ako celok */
+#utilityPanel {
+	display: block;
+	position: relative;
+	top: -13px;
+	left: -10px;
+	margin-right: -20px;
+	border-bottom: 2px solid black;
+	padding: 9px;
+	background-image: url("img/logform_bg.jpg");
+	background-position: bottom;
+}
+
+/* Odkaz v hlavnej užívateľskej lište */
+#utilityPanel a {
+	display: inline-block;
+	width: 200px;
+	min-width: 200px;
+	font-size: 15px;
+	text-align: center;
+	font-weight: bold;
+	color: silver;
+	text-transform: uppercase;
+	text-shadow: 5px 5px 10px black;
+	transition: color 0.5s linear;
+	-webkit-transition: color 0.5s linear;
+	-o-transition: color 0.5s linear;
+	outline: 0;
+}
+
+/* Keď nájdeme myšou do odkazu v paneli */
+#utilityPanel a:hover {
+	color: white;
+}
+
+
+/* obrázok (ukazovateľ mincí/tehál) v hornom uživateľskom paneli */
+#utilityPanel img.imageInPanel {
+	vertical-align: middle;
+}
+
+/* Prihlasovací formulár */
+#logForm {
+	display: none;
+	background-image: url("img/logform_bg_light.jpg");
+	position: absolute;
+	top: 38px;
+	padding: 10px;
+	margin-left: -10px;
+	border-bottom-right-radius: 15px;
+}
+
+
+/* Odkaz v prihlasovacom formulári */
+#logForm a {
+	display: block;
+	text-align: center;
+}
+
+
+
+/* =========================== Charakter ====================================== */
+
+/* Ukazovateľ (obrázok + číslo) hodnoty onoho konkrétneho statu. Dáme tam
+width, aby to nejak vyzeralo (ak nechceme table layout */
+span.currentStat{
+	display: inline-block;
+	width: 130px;
+	min-width: 130px;
+	max-width: 130px;
+	margin-bottom: 10px;
+	font-weight: bold;
+}
+
+/* Meno postavy v stránke charakteru */
+span#characterName {
+	font-weight: bold;
+	color: yellow;
+}
+
+img.plusImage:hover
+{
+	opacity: 0.5;
+}
+
+/* ================================= Pošta ======================================= */
+
+/* Tlačítka v pošte, napr. napísat správu. Budú trochu posunuté, aby korešpondovali s
+tabuľkou */
+a.postaTlacitko {
+	margin-left: 3px;
+}
+
+/* doručená pošta tabuľka */
+table#dorucenaPosta {
+	border: 8px groove grey;
+	border-radius: 5px;
+	padding: 4px;	
+	margin-top: 15px;
+	min-width: 500px;
+	background: #454545;
+	background-origin: padding-box;
+}
+
+/* jednotlivá bunka tabulky v doručenej pošte */
+table#dorucenaPosta td {
+	border: 1px solid grey;
+	padding: 2px;
+	background-color: #555555; 
+}
+
+table#dorucenaPosta td a.action {
+	display: inline-block;
+	width: 100%;
+	padding: 2px 0;
+}
+
+table#dorucenaPosta td a.action:hover {
+	background-color: #696969;
+}
+
+/* Políčko formulára v pošte - písanie novej správy */
+form#posta input, form#posta textarea  {
+	display: block;
+	margin-bottom: 10px;
+}
+
+/* Tabuľka prečítať správu sa zorbazí, keď uživateľ otvorí nejakú zo správ
+v doručenej pošte. Kedže vlavo sú popisy (napr. predmet, odosielatel, text),
+a v pravo obsahy patriace k týmto podpisom, musí to byť nejako 
+systematicky poodelované */
+table#precitatSpravu th {
+	text-align: left;
+	padding-right: 10px;
+	vertical-align: top;
+	font-size: 12px;
+}
+
+/* Zmena veľkosti písma v poliach tejto tabuľky */
+table#precitatSpravu td {
+	font-size: 12px;
+}
+
+/* Správa o víťazstve a získaných zlaťákoch by sa mala zobrazovať tlstejším
+zeleným písmom. Poznámka: tiredy sú tu preto, aby sa zafarbené správy mohli využívať
+aj inde, napr. v doručenej pošte pri oznámení o výsledku súboja. */
+span.vitaznaSprava, p.vitaznaSprava {
+	font-weight: bold;
+	color: lime;
+}
+
+/* Za to správa  o prehraní súboja zase červeným tlstým písmom */
+span.prehrataSprava, p.prehrataSprava {
+	font-weight: bold;
+	color: red;
+}
+
+/* A správa o remíze žltým písmom */
+span.remizaSprava, p.remizaSprava {
+	font-weight: bold;
+	color: yellow;
+}
+
+/* Predmet a text uvítacej správy bude  tlstou bielou farbou */
+span.uvitaciaSprava, p.uvitaciaSprava {
+	font-weight: bold;
+	color: white;
+}
+
+/* Tlacitko 'naspäť', ktoré umožňuje vrátiť sa zo stránky zobrazenia konkrétnej správy
+do doručenej pošty. Je to sice normálny link, ale treba trochu zmenit pozíciu */
+a#naspatDorucenaPosta {
+	display: block;
+	margin: 0 0 10px 3px;
+}
+
+/* Čosi ako vyskakovacia bublina. Mala by byť umiestnená vedľa tlačítka pošty v menu.
+Pri načítaní dokumentu by mala ostať skrytá (opacity: 0.0) a objaviť sa pri výskyte
+kurzoru myši nad tlačítkom pošty v menu. Bublina by mala obsahovať informácie o prečítaných/
+neprečítaných správach. */
+div#postaUkazovatel {
+	display: none;
+	position: absolute;
+	margin-top: -40px;
+	margin-left: 100px;
+	background-color: yellow;
+	width: 150px;	
+	border-radius: 5px;
+}
+
+
+/* =========================== Bojisko ==================================== */
+
+/* Obrázok 'bojiska' - 'arény'. Dal som tam koloseum.. čo iné :)
+   Musí byť trochu ďalej od ostaných prvkov v bojisku */
+figure#bojisko {
+	margin-top: 25px;
+	margin-bottom: 25px;
+	margin-left: 0px;
+}
+
+/* Staty a vôbec mená bojovníkov budú v tabuľke. Lepší by bol flow Layout,
+ale neskôr by bolo dobré dat kolo toho nejaké rámiky atd atd a na to sa tabuľka
+hodí viac. Aby to nevyzeralo bársjak, dáme ju na stred. */
+table#arena {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+table#bojisko td {
+	width: 250px;
+	min-width: 250px;
+}
+
+/* Horný riadok arénovej tabuľky bude mať nejaký separator */
+table#bojisko th {
+	border-bottom: 6px ridge grey;
+}
+
+
+/* Bojovník, ktorý je vľavo, bude mať staty a meno zarovnané doľava.
+Kvôli 'prehladnosti' preto bude v tabulke, preto aj minimalná-šírka */
+td span.lavyBojovnik {
+	display: inline-block;
+	text-align: left;
+	width: 160px;
+	min-width: 160px;
+	color: silver;
+	text-transform: uppercase;
+	font-weight: bold;
+}
+
+/* Bojovník, ktorý je vľavo, bude mať staty a meno zarovnané doľava.
+Kvôli 'prehladnosti' preto bude v tabulke, preto aj minimalná-šírka */
+td span.pravyBojovnik{
+	display: inline-block;
+	text-align: left;
+	width: 160px;
+	min-width: 160px;
+	color: silver;
+	text-transform: uppercase;
+	font-weight: bold;
+}
+
+/* ================================= Skupina ================================== */
+
+/* Stĺpce, v ktorých sú zvláštne funkcie a príslušné mená hráčov danej
+skupiny */
+div#leftColumn, div#middleColumn, div#rightColumn {
+	display: block;
+	text-align: center;
+	width: 165px;
+	float: left;
+}
+
+/* Pre zlepšenie vzhľadu by meno hodnosti (v skupinovej tabuľke), malo byť
+tučným písmom */
+p.menoHodnosti {
+	text-align: center;
+	font-weight: bold;
+}
+
+/* Vodca si zaslúži žltú farbu (nakoľko je asi dôležitý) */
+p#menoVelitela {
+	text-align: center;
+	color: yellow;
+}
+
+/* ============================= Sieň hrdinov ============================== */
+
+/* Aby bunky tabuľky v sieni hrdinov neboli natlačené na sebe */
+table#sienHrdinov th, table#sienHrdinov td {
+	padding-right: 20px;
+}
+
+/* ================================ Mascot ================================= */
+
+/* Oznámenie o aktuálnom maskotovi, ktoré práve uživateľ vlastní + oznámenie
+o aktuálnom zamestnaní užívateľa */
+p.userStatInfo
+{
+	display: block;
+	padding-bottom: 10px;
+	border-bottom: 5px groove white;
+	color: yellow;
+	font-size: 15px;
+}
+
+/* Kontajner obsahujúci info o dotyčnom maskotovi pri jeho kúpe */
+aside.maskotKupaBox 
+{
+	padding-bottom: 5px;
+	border-bottom: 1px dashed gold;
+}
+
+/* ================================= Iné =================================== */
+
+/* aby nebolo možné kopírovať text zo stránky */
+::selection{
+	user-select: none;
+}
+
+::-moz-selection{
+	user-select: none;
+}
+	
+/* Reklamy */
+.souhrn, .trop, .oznamy, .sponzor, .reklama, .zoznam, .partner {
+	display: none;
+}
