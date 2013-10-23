@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 session_start(); // startujeme session. Všimněte si, že tento kód je úplně nahoře před jakýmkolik výstupem.
 
 require_once "db.php";
@@ -69,7 +69,7 @@ if(isset($_SESSION)){
 		?>
 		<a title = "Changelog" href = "other.php?page=changelog" target = "_blank">Kompletný changelog</a> ~ <a title = "Changelog" href = "other.php?page=archiv" target = "_blank">Archív oznámení</a> 
 		
-		<p style = "font-weight: bold; color: maroon;"> Game is only about 3% completed. ("perfect graphics for now, or no?") </p>
+		<p style = "font-weight: bold; color: maroon;"> TESTTESTGame is only about 3% completed. ("perfect graphics for now, or no?") </p>
 		
 		<h3> Nová verze 0.2.3 </h3>
 		<p class = "justify"> Dnes vyšla nová verze 0.2.3. Změny :</p> 
