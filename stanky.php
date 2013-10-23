@@ -14,10 +14,10 @@
 <form action='game.php?page=hledani_stanku' method='POST' id='bojisko'>	
 <input type='text' name='jmeno' maxlength='32' placeholder='Meno'>
 <select name='filter'>
-	<option value='user'> Hledat podle majitele </option>
-	<option value='name'> Hledat podle názvu </option>
+	<option value='user'> Podle majitele </option>
+	<option value='name'> Podle názvu </option>
 </select>
-<input type='submit' name='hl_stanek' title='Hledat stánek' value='Hledat stánek'>
+<input type='submit' name='hl_stanek' title = "Hledat stánok" value='Hledat'>
 </form> <br /> <br />
 
 <fieldset>
