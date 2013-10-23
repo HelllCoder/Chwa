@@ -7,11 +7,10 @@
     {
 ?>
 <a title = "Založit obchodní stánek" class = "chwaTlacitko" href='game.php?page=zalozstanek'>Založit stánek</a>
-<br>
-<br>
-<br>
-<?php
-echo "
+<br />
+<br />
+<br />
+
 <form action='game.php?page=hledani_stanku' method='POST' id='bojisko'>	
 <input type='text' name='jmeno' maxlength='32' placeholder='Meno'>
 <select name='filter'>
@@ -19,9 +18,8 @@ echo "
 	<option value='name'> Hledat podle názvu </option>
 </select>
 <input type='submit' name='hl_stanek' title='Hledat stánek' value='Hledat stánek'>
-</form> <br /> <br />";
+</form> <br /> <br />
 
-?>
 <fieldset>
 	<h1>10 nejoblíbenějších stánků</h1>
 <?php
@@ -43,18 +41,21 @@ echo "
 
 	<tr>
 	<td><?php echo $Pocet; ?></td>
-		<?php $id = $Vysledek['id']; ?>
-		<td><?php echo $Vysledek['jmeno']; ?></td>
-		<td><?php echo $Vysledek['majitel']; ?></td>
-		<td><?php echo $Vysledek['oblibenost']; ?></td>
-    <td>	 <form action="game.php?page=zobrazstanek" method="POST">
-		<input type='hidden' name='obet' value="<?php echo $Vysledek['id']; ?>">
-		<input type="submit" name="send" title = "Zobrazit" value= "Zobrazit" /> </form> </td>
+	<?php $id = $Vysledek['id']; ?>
+	<td><?php echo $Vysledek['jmeno']; ?></td>
+	<td><?php echo $Vysledek['majitel']; ?></td>
+	<td><?php echo $Vysledek['oblibenost']; ?></td>
+    <td>
+        <form action="game.php?page=zobrazstanek" method="POST">
+		    <input type='hidden' name='obet' value="<?php echo $Vysledek['id']; ?>">
+		    <input type="submit" name="send" title = "Zobrazit" value= "Zobrazit" /> 
+	    </form>
+	</td>
     </tr>
 <?
 			}
-			echo "</table>";
 ?>
+    </table>
 </fieldset>
 <?
       }
