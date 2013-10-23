@@ -1,9 +1,16 @@
+<?php
+    if (!($_SESSION))
+    {
+	    header("location: index.php");
+    }
+    else
+    {
+?>
 <a title = "Založit obchodní stánek" class = "chwaTlacitko" href='game.php?page=zalozstanek'>Založit stánek</a>
 <br>
 <br>
 <br>
 <?php
-
 echo "
 <form action='game.php?page=hledani_stanku' method='POST' id='bojisko'>	
 <input type='text' name='jmeno' maxlength='32' placeholder='Meno'>
@@ -49,3 +56,6 @@ echo "
 			echo "</table>";
 ?>
 </fieldset>
+<?
+      }
+?>
