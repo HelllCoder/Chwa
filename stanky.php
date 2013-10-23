@@ -1,4 +1,4 @@
-<a title = "Založit obchodní stánek" class = "chwaTlacitko" href='game.php?page=zalozstanek'>Založit obchodní stánek</a>
+<a title = "Založit obchodní stánek" class = "chwaTlacitko" href='game.php?page=zalozstanek'>Založit stánek</a>
 <br>
 <br>
 <br>
@@ -9,14 +9,14 @@ echo "
 <input type='text' name='jmeno' maxlength='32' placeholder='Meno'>
 <select name='filter'>
 	<option value='user'> Hledat podle majitele </option>
-	<option value='name'> Hledat podle názvu stánku </option>
+	<option value='name'> Hledat podle názvu </option>
 </select>
 <input type='submit' name='hl_stanek' title='Hledat stánek' value='Hledat stánek'>
 </form> <br /> <br />";
 
 ?>
 <fieldset>
-	<h1>10 Nejoblíbenějších stánků</h1>
+	<h1>10 nejoblíbenějších stánků</h1>
 <?php
 	require_once "db.php";
 	$query = MySQL_Query("SELECT * FROM `stanky` ORDER BY oblibenost DESC ") or die (mysql_error());
@@ -41,8 +41,8 @@ echo "
 		<td><?php echo $Vysledek['majitel']; ?></td>
 		<td><?php echo $Vysledek['oblibenost']; ?></td>
     <td>	 <form action="game.php?page=zobrazstanek" method="POST">
-		<input type='hidden' name='id' value="<?php echo $Vysledek['id']; ?>">
-		<input type="submit" name="send" title = "Zobrazit stánek" value= "Zobrazit stánek" /> </form> </td>
+		<input type='hidden' name='obet' value="<?php echo $Vysledek['id']; ?>">
+		<input type="submit" name="send" title = "Zobrazit" value= "Zobrazit" /> </form> </td>
     </tr>
 <?
 			}
