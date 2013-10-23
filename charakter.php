@@ -46,9 +46,8 @@ if ($_SESSION['zvire']){
 	<!-- Ukazovateľ a zlepšovač sily -->
 	<span class = 'currentStat' ><img title = 'Síla' src='/img/sword.png'/>
 	<? echo $_SESSION["silam"]."";
-		if ($_SESSION["zvire"] == "Vlk") {
+		if ($_SESSION["zvire"] == "Vlk") 
 			echo " (x2) ";
-		}
 	?>
 	</span>
 	<a title = 'Zlepšit sílu' href='/silam.php'>  <img class = "plusImage" src='/img/plus.png' /></a>
@@ -65,7 +64,11 @@ if ($_SESSION['zvire']){
 	<? echo $_SESSION["magicm"]; ?> </span>
 	<a title = 'Zlepšit magii' href='/magicm.php'>  <img class = "plusImage" src='/img/plus.png' /></a>
 	<? echo $cenamagic; ?> <br>
-<? } else { ?>
+<? 
+}
+else 
+{ 
+?>
 
 	<h1>Mascot - <span class = 'noneValue'> žiadny </span></h1>
 
